@@ -72,3 +72,10 @@ img {
 .hidden {
 	display: none;
 }
+
+.header {
+	display: block;
+	width: 100vh;
+	height: 100px;
+	background-color: pink;
+}
