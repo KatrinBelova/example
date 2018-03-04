@@ -1,0 +1,16 @@
+doctype html
+
+block variables
+
+html
+	head
+		meta(charset='UTF-8')
+		meta(name='viewport' content='width=device-width, initial-scale=1')
+		meta(name='description' content='')
+		link(rel='stylesheet' href='./css/main2.css')
+		script(defer src='./js/bundle.js')
+		title #{title}
+
+	body.page
+		include ../modules/header
+		block content

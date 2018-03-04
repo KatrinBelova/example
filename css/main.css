@@ -79,3 +79,7 @@ img {
 	height: 100px;
 	background-color: pink;
 }
+
+.news-title {
+	padding-top: 20px;
+}
