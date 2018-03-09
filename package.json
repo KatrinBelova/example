@@ -4,18 +4,28 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "pug": "^2.0.0-rc.4"
+    "del": "^3.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-pug": "^3.3.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "pug-cli": "^1.0.0-alpha6"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "concat": "^1.0.3",
+    "gulp": "github:gulpjs/gulp#4.0",
     "gulp-concat": "^2.6.1",
+    "gulp-debug": "^3.2.0",
     "gulp-jshint": "^2.1.0",
     "gulp-rename": "^1.2.2",
+    "gulp-stylus": "^2.7.0",
     "gulp-uglify": "^3.0.0",
-    "jshint": "^2.9.5"
+    "jshint": "^2.9.5",
+    "pug": "^2.0.1",
+    "stylus": "^0.54.5"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "./node_modules/.bin/gulp"
   },
   "repository": {
     "type": "git",
