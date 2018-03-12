@@ -11,11 +11,13 @@
     "pug-cli": "^1.0.0-alpha6"
   },
   "devDependencies": {
+    "autoprefixer": "^8.1.0",
     "concat": "^1.0.3",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-concat": "^2.6.1",
     "gulp-debug": "^3.2.0",
     "gulp-jshint": "^2.1.0",
+    "gulp-newer": "^1.4.0",
     "gulp-rename": "^1.2.2",
     "gulp-stylus": "^2.7.0",
     "gulp-uglify": "^3.0.0",

@@ -38,6 +38,7 @@ const debug = require('gulp-debug');
 const gulpIf = require('gulp-if');
 const del = require('del');
 const pug = require('gulp-pug');
+const newer = require('gulp-newer'); // gulp-changed
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 //NODE_ENV - переменная окружения
@@ -50,7 +51,7 @@ gulp.task('views', function buildHTML() {
 });
 
 gulp.task('styles', function () {
-	return gulp.src('src/styles/main.styl')
+	return gulp.src('src/modules/main.styl')
 		.pipe(gulpIf(isDevelopment, sourcemaps.init())) //file.sourceMap
 		.pipe(stylus())
 		.pipe(gulpIf(isDevelopment, sourcemaps.write()))
@@ -62,10 +63,19 @@ gulp.task('clean', function () {
 });
 
 gulp.task('assets', function () {
-	return gulp.src('src/assets/**')
+	return gulp.src('src/assets/**', {since: gulp.lastRun('assets')})
+		.pipe(newer('public'))
 		.pipe(gulp.dest('public'));
 });
+// {since: gulp.lastRun('assets')} - с последнего изменения
 
 gulp.task('build', gulp.series(
 	'clean',
 	gulp.parallel('views', 'styles', 'assets')));
+
+gulp.task('watch', function () {
+	gulp.watch('src/modules/**/*.styl', gulp.series('styles'));
+	gulp.watch('src/assets/**/*.*', gulp.series('assets'));
+});
+
+gulp.task('dev', gulp.series('build', 'watch'));
