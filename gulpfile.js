@@ -9,7 +9,7 @@
 // 	callback();
 // });
 
-// Vinul-FS
+// Vinyl-FS
 
 // gulp.task('default', function() {
 // 	return gulp.src('src/**/*.*')    
@@ -46,6 +46,10 @@ const remember = require('gulp-remember');
 const path = require('path');
 const cached = require('gulp-cached');
 const browserSync = require('browser-sync').create();
+const notify = require('gulp-notify');
+const plumber = require('gulp-plumber');
+//multipipe
+// stream-combiner2
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 //NODE_ENV - переменная окружения
@@ -59,8 +63,26 @@ gulp.task('views', function buildHTML() {
 
 gulp.task('styles', function () {
 	return gulp.src('src/modules/main.styl')
+		.pipe(plumber({
+			errorHandler: notify.onError(function (err) {
+				return {
+					title: 'Styles',
+					message: err.message
+				};
+			})
+		}))
 		.pipe(gulpIf(isDevelopment, sourcemaps.init())) //file.sourceMap
 		.pipe(stylus())
+		// .on('error', function (err) {
+		// 	console.log(err.message);
+		// 	this.end(); //сигнал о завершении обработки
+		// })
+		// .on('error', notify.onError(function (err) {
+		// 	return {
+		// 		title: 'Styles',
+		// 		message: err.message
+		// 	}
+		// }))
 		.pipe(gulpIf(isDevelopment, sourcemaps.write()))
 		.pipe(gulp.dest('public'));
 

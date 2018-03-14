@@ -10,10 +10,14 @@
     "gulp-autoprefixer": "^5.0.0",
     "gulp-cached": "^1.1.1",
     "gulp-if": "^2.0.2",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.0",
     "gulp-pug": "^3.3.0",
     "gulp-sourcemaps": "^2.6.4",
     "path": "^0.12.7",
-    "pug-cli": "^1.0.0-alpha6"
+    "pug-cli": "^1.0.0-alpha6",
+    "through2": "^2.0.3",
+    "vinyl": "^2.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^8.1.0",
